@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="236" height="48" viewBox="0 0 236 48" role="img" aria-label="Ropework">
+  <g color="#0C6A6E" transform="translate(4 4)"><rect x="20" y="3.5" width="23.3" height="23.3" rx="4" transform="rotate(45 20 3.5)" stroke="currentColor" stroke-width="3" fill="none"/><rect x="20" y="13.5" width="9.2" height="9.2" rx="1.5" transform="rotate(45 20 13.5)" fill="currentColor"/></g>
+  <!-- The product name lives in this one text layer. Change it here; nothing else depends on the word. -->
+  <text id="wordmark" x="56" y="33" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600" letter-spacing="-0.4" fill="#1B1A15">Ropework</text>
+</svg>
