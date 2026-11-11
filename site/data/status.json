@@ -139,8 +139,8 @@
       "icon": "Monitor",
       "name": "Ubuntu 24.04",
       "state": "planned",
-      "summary": "An AppImage and a .deb. A Linux build is being prepared; none is published yet.",
-      "when": "Next, after the beta is tested"
+      "summary": "An AppImage and a .deb now build. They still need testing on a real Ubuntu 24.04 desktop before they are published, so there is no Linux download yet.",
+      "when": "Next, after testing"
     }
   ]
 }
