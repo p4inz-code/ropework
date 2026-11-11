@@ -11,7 +11,10 @@ const base = (process.env.SITE_BASE || "").replace(/\/$/, ""); // "/ropework" wh
 const rebase = (text) => (base ? text.replace(/(href|src|action)="\//g, `$1="${base}/`).replace(/url\("\//g, `url("${base}/`) : text);
 if (process.env.SITE_FORM_ENDPOINT) site.formEndpoint = process.env.SITE_FORM_ENDPOINT; // for tests only
 const icons = JSON.parse(read("src/icons.json"));
-const releases = JSON.parse(read("data/releases.json"));
+const FIRST_PUBLIC = [0, 27, 0]; // the website tracks releases from release candidate 1 on; earlier history is not shown
+const vnum = (v) => v.split(".").map(Number);
+const newer = (a, b) => { for (let i = 0; i < 3; i++) if (a[i] !== b[i]) return a[i] > b[i]; return true; };
+const releases = JSON.parse(read("data/releases.json")).filter((r) => newer(vnum(r.version), FIRST_PUBLIC));
 const downloads = JSON.parse(read("data/downloads.json"));
 const known = JSON.parse(read("data/known-issues.json"));
 const dist = join(root, process.env.SITE_OUT ?? "dist");
@@ -514,14 +517,27 @@ page("/labs/", {
 // ---------------------------------------------------------------- 404
 page("/404.html", { title: "Page not found", description: "That page is not here.", body: `<section class="band"><div class="wrap"><p><a class="btn primary" href="/">Go to the home page</a></p></div></section>` });
 
+
+// The page policy allows no inline styles, so every style="..." in the markup becomes a generated class (with !important, as an inline style would win).
+const styleClasses = new Map();
+const unstyle = (html) =>
+  html.replace(/<([a-zA-Z][a-zA-Z0-9]*)((?:\s[^>]*?)?)\sstyle="([^"]*)"([^>]*)>/g, (m, tag, pre, st, post) => {
+    const key = st.trim().replace(/;$/, "");
+    if (!styleClasses.has(key)) styleClasses.set(key, "st" + (styleClasses.size + 1));
+    const cls = styleClasses.get(key);
+    const attrs = pre + post;
+    return /\sclass="/.test(attrs) ? `<${tag}${attrs.replace(/\sclass="([^"]*)"/, ` class="$1 ${cls}"`)}>` : `<${tag}${attrs} class="${cls}">`;
+  });
+
 // ---------------------------------------------------------------- write
 for (const p of pages) {
-  const html = rebase(shell(p));
+  const html = rebase(unstyle(shell(p)));
   const file = p.path.endsWith(".html") ? join(dist, p.path) : join(dist, p.path, "index.html");
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, html);
 }
 for (const f of ["tokens.css", "site.css", "site.js", "theme.js"]) writeFileSync(join(dist, f), rebase(readFileSync(join(root, "src", f), "utf8")));
+writeFileSync(join(dist, "site.css"), readFileSync(join(dist, "site.css"), "utf8") + "\n/* generated from inline styles */\n" + [...styleClasses].map(([k, c]) => `.${c} { ${k.split(";").map((d) => d.trim()).filter(Boolean).join(" !important; ")} !important; }`).join("\n") + "\n");
 cpSync(join(root, "src", "fonts"), join(dist, "fonts"), { recursive: true });
 cpSync(join(root, "src", "brand"), join(dist, "brand"), { recursive: true });
 cpSync(join(root, "src", "screens"), join(dist, "screens"), { recursive: true });

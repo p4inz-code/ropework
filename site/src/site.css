@@ -318,3 +318,30 @@ html { scrollbar-gutter: auto; }
 .qa-a p { margin: 0 0 10px; }
 .qa-none { margin: 16px 0; color: var(--color-text-muted); }
 @media (prefers-reduced-motion: reduce) { .qa-q::after { transition: none; } }
+
+/* buttons: a soft shine on hover, a small pull towards the pointer on the main ones, and a quick press on every one */
+.btn { position: relative; overflow: hidden; isolation: isolate; }
+.btn::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.28) 50%, transparent 65%); transform: translateX(-120%); }
+.btn:not(.primary)::before { background: linear-gradient(105deg, transparent 35%, color-mix(in srgb, var(--color-accent) 16%, transparent) 50%, transparent 65%); }
+@media (prefers-reduced-motion: no-preference) {
+  .btn { transition: background-color 0.12s, filter 0.12s, border-color 0.12s, transform 0.18s cubic-bezier(0.2, 0.7, 0.2, 1); will-change: transform; }
+  .btn:hover::before { transform: translateX(120%); transition: transform 0.65s ease; }
+  .btn:active { transform: translate(var(--mx, 0px), var(--my, 0px)) scale(0.965); transition-duration: 0.06s; }
+  .btn.magnet { transform: translate(var(--mx, 0px), var(--my, 0px)); }
+  .btn.pop::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 45%, transparent); animation: btn-pop 0.45s ease-out; }
+  @keyframes btn-pop { to { box-shadow: 0 0 0 10px transparent; } }
+}
+@media (hover: none), (prefers-reduced-motion: reduce) { .btn::before { display: none; } }
+
+/* hidden means hidden, even where a rule sets display */
+[hidden] { display: none !important; }
+/* nothing is wider than the screen on a phone */
+.guide > *, .guide-body, .prose { min-width: 0; }
+.prose pre, .guide-body pre, pre.code { max-width: 100%; overflow-x: auto; }
+.prose table, .guide-body table { display: block; max-width: 100%; overflow-x: auto; }
+.guide-body img { max-width: 100%; height: auto; }
+.prose a, .guide-body a { overflow-wrap: anywhere; }
+@media (max-width: 900px) {
+  .toc ol { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; grid-template-columns: none; }
+  .toc a { white-space: nowrap; border: 1px solid var(--color-border); border-radius: 999px; padding: 6px 14px; }
+}

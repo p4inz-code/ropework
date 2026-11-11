@@ -41,6 +41,7 @@ for (const file of pages) {
   if (!/<title>[^<]+<\/title>/.test(html)) problems.push(`${at}: no title`);
   if (!/class="skip"/.test(html)) problems.push(`${at}: no skip link`);
   if ((html.match(/<h1[ >]/g) ?? []).length !== 1) problems.push(`${at}: needs exactly one h1`);
+  if (/\sstyle="/.test(html)) problems.push(`${at}: an inline style (the page policy blocks it)`);
   if (/<select[\s>]/.test(html)) problems.push(`${at}: a system drop-down (select) is not allowed`);
   if (/<script(?![^>]*\ssrc=)(?![^>]*type="application\/ld\+json")[^>]*>/.test(html)) problems.push(`${at}: an inline script`);
   for (const m of html.matchAll(/(src|href)="([^"]+)"/g)) {
@@ -112,6 +113,24 @@ console.log(`ok: ${pages.length} pages, ${Math.round(cssjs / 1024)} KB of CSS an
   }
   if (stale.length) {
     console.log(stale.join("\n"));
+    process.exit(1);
+  }
+}
+
+// No emoji anywhere on the site: icons are Lucide SVGs from src/icons.json only.
+{
+  const emoji = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u2B50\u2B06]/u;
+  const found = [];
+  const walk = (d) => {
+    for (const n of readdirSync(d)) {
+      const p = join(d, n);
+      if (statSync(p).isDirectory()) walk(p);
+      else if (/\.(html|css|js|json|txt|xml)$/.test(n) && emoji.test(readFileSync(p, "utf8"))) found.push(p);
+    }
+  };
+  walk(join(dirname(fileURLToPath(import.meta.url)), "dist"));
+  if (found.length) {
+    console.log("emoji found in:\n" + found.join("\n"));
     process.exit(1);
   }
 }

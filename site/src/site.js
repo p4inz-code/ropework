@@ -235,4 +235,34 @@
     });
   }
 
+
+  // ---- buttons: a small pull towards the pointer on the main ones (fine pointers only), and a brief ring when pressed
+  var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fine = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  document.querySelectorAll(".btn").forEach(function (b) {
+    if (!calm) {
+      b.addEventListener("pointerdown", function () {
+        b.classList.remove("pop");
+        void b.offsetWidth;
+        b.classList.add("pop");
+      });
+      b.addEventListener("animationend", function () {
+        b.classList.remove("pop");
+      });
+    }
+    if (calm || !fine || !b.classList.contains("primary")) return;
+    b.classList.add("magnet");
+    b.addEventListener("pointermove", function (e) {
+      var r = b.getBoundingClientRect();
+      var x = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+      var y = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+      b.style.setProperty("--mx", Math.max(-1, Math.min(1, x)) * 5 + "px");
+      b.style.setProperty("--my", Math.max(-1, Math.min(1, y)) * 3 + "px");
+    });
+    b.addEventListener("pointerleave", function () {
+      b.style.setProperty("--mx", "0px");
+      b.style.setProperty("--my", "0px");
+    });
+  });
+
 })();
