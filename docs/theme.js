@@ -7,3 +7,12 @@
     /* the system theme stays */
   }
 })();
+// A page cannot be shown inside another site's frame (the policy header that does this cannot be set on this host).
+try {
+  if (window.top !== window.self) {
+    document.documentElement.hidden = true;
+    window.top.location = window.self.location;
+  }
+} catch (e) {
+  document.documentElement.hidden = true;
+}

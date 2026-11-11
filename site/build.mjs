@@ -108,13 +108,14 @@ function shell({ path, title, description, body, hero, ld }) {
     .map(([h, links]) => `<div><h4>${h}</h4><ul>${links.map(([t, u]) => `<li><a href="${u}">${t}</a></li>`).join("")}</ul></div>`)
     .join("");
   const full = path === "/" ? site.name : `${title} · ${site.name}`;
-  const csp = `default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' ${site.formEndpoint ? new URL(site.formEndpoint).origin : ""}; object-src 'none'; base-uri 'none'; form-action 'none'`;
+  const csp = `default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; media-src 'none'; worker-src 'none'; manifest-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests`;
   return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="${csp}">
+<meta name="referrer" content="no-referrer">
 <meta name="description" content="${esc(description ?? site.tagline)}">
 <meta name="color-scheme" content="light dark">
 <meta name="form-endpoint" content="${esc(site.formEndpoint)}">
@@ -531,7 +532,7 @@ const unstyle = (html) =>
 
 // ---------------------------------------------------------------- write
 for (const p of pages) {
-  const html = rebase(unstyle(shell(p)));
+  const html = rebase(unstyle(shell(p))).replace(/rel="noopener"/g, 'rel="noopener noreferrer"');
   const file = p.path.endsWith(".html") ? join(dist, p.path) : join(dist, p.path, "index.html");
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, html);

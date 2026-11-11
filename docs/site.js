@@ -265,4 +265,13 @@
     });
   });
 
+
+  // ---- pictures: no right-click menu and no dragging on them. This only deters casual saving; anything a browser shows can be copied.
+  document.addEventListener("contextmenu", function (e) {
+    if (e.target && e.target.closest && e.target.closest("img, picture, .deck")) e.preventDefault();
+  });
+  document.addEventListener("dragstart", function (e) {
+    if (e.target && e.target.tagName === "IMG") e.preventDefault();
+  });
+
 })();

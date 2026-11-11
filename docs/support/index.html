@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' ; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; media-src 'none'; worker-src 'none'; manifest-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
 <meta name="description" content="How to ask for help, what to include, and answers to the questions that come up most.">
 <meta name="color-scheme" content="light dark">
 <meta name="form-endpoint" content="">
@@ -28,7 +29,7 @@
 <section class="band"><div class="wrap prose">
 <p>Support during the beta is best effort. No reply time is promised. A support email address will be added later; for now the issue tracker is the place to ask.</p>
 <h2>Ask or report a problem</h2>
-<p><a href="https://github.com/p4inz-code/ropework/issues/new/choose" rel="noopener">Open an issue</a> and pick the template that fits: something broke, something was confusing, or an idea. Please do not post passwords, server addresses or private file names.</p>
+<p><a href="https://github.com/p4inz-code/ropework/issues/new/choose" rel="noopener noreferrer">Open an issue</a> and pick the template that fits: something broke, something was confusing, or an idea. Please do not post passwords, server addresses or private file names.</p>
 <h2>What to include</h2>
 <p>The Ropework version (Help, About), the version of your Perforce server, what you did and what you expected. In the app, Help, Send feedback builds a short text with the version and the commands that ran recently. It has no file names, server addresses or passwords, and you can read it before you copy it.</p>
 <h2>Questions that come up</h2>
@@ -43,7 +44,7 @@
 <h3>The server is not reachable.</h3>
 <p>A band at the top says so. You can still read the folders you opened before, from the saved copy, and Ropework retries by itself.</p>
 <h2>Security problems</h2>
-<p>Please do not open a public issue. Use <a href="https://github.com/p4inz-code/ropework/security/advisories/new" rel="noopener">private reporting</a> on GitHub instead. See also <a href="/ropework/privacy/">Privacy and security</a>.</p>
+<p>Please do not open a public issue. Use <a href="https://github.com/p4inz-code/ropework/security/advisories/new" rel="noopener noreferrer">private reporting</a> on GitHub instead. See also <a href="/ropework/privacy/">Privacy and security</a>.</p>
 <h2>Before you write</h2>
 <p>Look at the <a href="/ropework/known-issues/">known issues</a>. Yours may already be listed with a way around it.</p>
 </div></section>
