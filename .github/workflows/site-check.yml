@@ -1,0 +1,25 @@
+name: site-check
+# Builds the website from site/ and runs its checks (links, no outside addresses, accessibility rules). Publishing stays manual: docs/ is the built copy.
+on:
+  push:
+    paths: ["site/**", "docs/**"]
+  pull_request:
+    paths: ["site/**", "docs/**"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  site:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    env:
+      SITE_BASE: /ropework
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node build.mjs
+      - run: node check.mjs

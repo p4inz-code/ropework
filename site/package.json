@@ -1,0 +1,10 @@
+{
+  "name": "ropework-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node check.mjs",
+    "test": "node --test test/worker.test.mjs && node test/form-e2e.mjs"
+  }
+}

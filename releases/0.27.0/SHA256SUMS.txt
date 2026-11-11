@@ -1,0 +1,2 @@
+c2f06cd1b9759bddb069b52c9e66785fb0390b975e82777d216b2625eb471da4  Ropework-Setup-0.27.0.exe
+5426de7b895a2abb7c62b0b5ed98c903a1646cfc21700fcee4c1711e1ae45522  ropework-0.27.0-win-x64-portable.zip

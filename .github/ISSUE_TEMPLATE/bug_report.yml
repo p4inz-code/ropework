@@ -1,0 +1,25 @@
+name: Something broke
+description: The app did something wrong, or stopped.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, what you saw. A screenshot helps.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Ropework version
+      description: Help, About
+  - type: input
+    id: server
+    attributes:
+      label: Perforce server version
+  - type: textarea
+    id: bundle
+    attributes:
+      label: Feedback bundle
+      description: Help, Send feedback, Copy to clipboard, then paste here. It has no file names, server addresses or passwords.

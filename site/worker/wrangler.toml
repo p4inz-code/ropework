@@ -1,0 +1,9 @@
+name = "ropework-form"
+main = "index.js"
+compatibility_date = "2026-01-01"
+
+[vars]
+TO_EMAIL = ""
+ALLOW_ORIGIN = "https://ropework.github.io"
+FROM_EMAIL = "onboarding@resend.dev"
+# RESEND_API_KEY is a secret: set it with `npx wrangler secret put RESEND_API_KEY`, never here.

@@ -1,0 +1,11 @@
+{
+  "name": "Ropework",
+  "tagline": "A calm desktop client for Perforce Helix Core",
+  "footerLine": "Your files and server details never leave your network. Ropework contacts our licence service only to confirm your licence.",
+  "legalLine": "Ropework is an independent product and is not affiliated with Perforce Software.",
+  "owner": "P4inz Interactive Labs",
+  "year": 2026,
+  "origin": "https://p4inz-code.github.io/ropework",
+  "formEndpoint": "",
+  "contactEmail": ""
+}

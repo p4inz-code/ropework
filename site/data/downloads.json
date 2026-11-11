@@ -1,0 +1,30 @@
+{
+  "baseUrl": "",
+  "releases": [
+    {
+      "version": "0.27.0",
+      "date": "2026-11-11",
+      "channel": "steady",
+      "files": [
+        {
+          "platform": "windows",
+          "type": "installer",
+          "name": "Ropework-Setup-0.27.0.exe",
+          "label": "Windows installer, for your user only, no administrator rights",
+          "size": 105149733,
+          "sha256": "c2f06cd1b9759bddb069b52c9e66785fb0390b975e82777d216b2625eb471da4",
+          "url": "https://github.com/p4inz-code/ropework/releases/download/v0.27.0/Ropework-Setup-0.27.0.exe"
+        },
+        {
+          "platform": "windows",
+          "type": "portable",
+          "name": "ropework-0.27.0-win-x64-portable.zip",
+          "label": "Portable: unzip anywhere and run Ropework.exe",
+          "size": 140898685,
+          "sha256": "5426de7b895a2abb7c62b0b5ed98c903a1646cfc21700fcee4c1711e1ae45522",
+          "url": "https://github.com/p4inz-code/ropework/releases/download/v0.27.0/ropework-0.27.0-win-x64-portable.zip"
+        }
+      ]
+    }
+  ]
+}

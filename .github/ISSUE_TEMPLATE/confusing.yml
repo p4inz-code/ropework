@@ -1,0 +1,11 @@
+name: Something was confusing
+description: You hesitated, or a word or button was unclear.
+labels: [ux]
+body:
+  - type: textarea
+    id: where
+    attributes:
+      label: Where, and what was unclear?
+      description: The screen, what you tried to do, what you expected.
+    validations:
+      required: true
