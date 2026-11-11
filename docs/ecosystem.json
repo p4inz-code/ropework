@@ -1,0 +1,72 @@
+{
+  "publisher": "P4inz Interactive Labs",
+  "author": "Atharva Patil",
+  "github": "https://github.com/p4inz-code",
+  "product": {
+    "name": "Ropework",
+    "url": "https://p4inz-code.github.io/ropework/",
+    "downloads": "https://github.com/p4inz-code/ropework/releases"
+  },
+  "projects": [
+    {
+      "name": "Kanvaz",
+      "url": "https://p4inz-code.github.io/kanvaz/",
+      "text": "A free, open-source, offline infinite-canvas reference board for VFX and 3D artists"
+    },
+    {
+      "name": "Kanvaz Mini",
+      "url": "https://p4inz-code.github.io/kanvaz/guide/kanvaz-mini.html",
+      "text": "A small always-on-top reference window, the quick version of Kanvaz"
+    },
+    {
+      "name": "OutlineDesk",
+      "url": "https://p4inz-code.github.io/outlinedesk/",
+      "text": "An offline production planner for animation, VFX and game studios"
+    },
+    {
+      "name": "Nexus Desktop",
+      "url": "https://p4inz-code.github.io/nexus-desktop/",
+      "text": "An encrypted desktop vault for Windows that works offline and has no telemetry"
+    },
+    {
+      "name": "Crossport",
+      "url": "https://github.com/p4inz-code/Crossport",
+      "text": "A free, offline Windows file-transfer utility that shows its plan before anything moves"
+    },
+    {
+      "name": "MINK",
+      "url": "https://github.com/p4inz-code/mink",
+      "text": "A programming language focused on clarity, performance and safety"
+    },
+    {
+      "name": "Pursue OS",
+      "url": "https://github.com/p4inz-code/pursue-os",
+      "text": "A privacy-first workspace for OSINT and digital investigations"
+    },
+    {
+      "name": "3D Ref Skills",
+      "url": "https://github.com/p4inz-code/3d-ref-skills",
+      "text": "An AI skill pack for 3D pre-production reference work, free and MIT licensed"
+    },
+    {
+      "name": "Reference Engineering",
+      "url": "https://github.com/p4inz-code/reference-engineering",
+      "text": "A reference engineering library from app development to VFX"
+    },
+    {
+      "name": "repo-map",
+      "url": "https://github.com/p4inz-code/repo-map",
+      "text": "Generates architecture overviews of a code repository as Markdown or JSON"
+    },
+    {
+      "name": "Project Ascent",
+      "url": "https://github.com/p4inz-code/project-ascent",
+      "text": "An offline 2D precision platformer"
+    },
+    {
+      "name": "Portfolio",
+      "url": "https://github.com/p4inz-code/portfolio",
+      "text": "The personal portfolio of Atharva Patil"
+    }
+  ]
+}

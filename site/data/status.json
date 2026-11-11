@@ -1,0 +1,146 @@
+{
+  "asOf": "0.27.0",
+  "note": "The single source for what is built and what is not. The features page, the known issues page and the guide's pointer all read this file. Update it in every release; the build stops if asOf is not the newest release.",
+  "features": [
+    {
+      "id": "artist-layout",
+      "icon": "LayoutGrid",
+      "name": "Artist layout",
+      "state": "built",
+      "summary": "A grid of thumbnails with state you can read without colour, and the two buttons artists need."
+    },
+    {
+      "id": "blockers",
+      "icon": "ListChecks",
+      "name": "Blockers, not grey buttons",
+      "state": "built",
+      "summary": "A Submit that cannot run says why and offers each fix."
+    },
+    {
+      "id": "safety-net",
+      "icon": "Undo2",
+      "name": "A safety net",
+      "state": "built",
+      "summary": "A safety copy before anything lossy, kept for 14 days. Undo from the notification."
+    },
+    {
+      "id": "checkpoints",
+      "icon": "BookmarkCheck",
+      "name": "Checkpoints",
+      "state": "built",
+      "summary": "Save your open work to the server as a shelf and go back to it, with an undo."
+    },
+    {
+      "id": "preview-first",
+      "icon": "Eye",
+      "name": "Preview before change",
+      "state": "built",
+      "summary": "Get latest, revert and unshelve show what they will touch first."
+    },
+    {
+      "id": "previews",
+      "icon": "Box",
+      "name": "Previews that stay safe",
+      "state": "built",
+      "summary": "Images, text, audio and video, and 3D models (glTF, FBX, OBJ, STL, PLY, USD) with textures, animation, measuring and compare. Previews never run a file's own code."
+    },
+    {
+      "id": "documents",
+      "icon": "FileText",
+      "name": "PDF and Office previews",
+      "state": "built",
+      "summary": "A PDF viewer with thumbnails and an outline, and an approximate view of Word, Excel and PowerPoint files. Read-only."
+    },
+    {
+      "id": "open-in",
+      "icon": "ExternalLink",
+      "name": "Open in",
+      "state": "built",
+      "summary": "Photoshop, Substance Painter, Blender, Maya and more, found on your computer; a read-only copy opens."
+    },
+    {
+      "id": "resolve",
+      "icon": "Shuffle",
+      "name": "Resolve and merge",
+      "state": "built",
+      "summary": "Merge automatically, keep yours, take theirs, or choose for each clash by hand, with a safety copy first."
+    },
+    {
+      "id": "history",
+      "icon": "FileText",
+      "name": "History and who changed what",
+      "state": "built",
+      "summary": "A file's revisions, a time-lapse of who changed each line, a revision graph, and what changed between two versions."
+    },
+    {
+      "id": "streams",
+      "icon": "GitFork",
+      "name": "Streams without fear",
+      "state": "built",
+      "summary": "List, details and a guarded switch. Merge down and copy up explain what will happen before they run. A stream editor and a stream graph."
+    },
+    {
+      "id": "offline",
+      "icon": "Server",
+      "name": "Works offline",
+      "state": "partial",
+      "summary": "When the server is out of reach, folders you opened before stay readable from the saved copy.",
+      "left": "Queuing the edits you make while offline."
+    },
+    {
+      "id": "studio-profile",
+      "icon": "Building2",
+      "name": "Studio profiles",
+      "state": "partial",
+      "summary": "A studio can lock settings, each lock with a reason, fix the starting layout, and set a description template with rules.",
+      "left": "Columns, saved views, menus, signing and sharing a profile from the depot."
+    },
+    {
+      "id": "doctor",
+      "icon": "ShieldCheck",
+      "name": "Doctor and a 5-minute tour",
+      "state": "built",
+      "summary": "Checks that the app can work here, saved data you can clear, and a support bundle. A short tour for first-time users."
+    },
+    {
+      "id": "labels-jobs",
+      "icon": "ListChecks",
+      "name": "Labels and jobs",
+      "state": "planned",
+      "summary": "Pick, apply and look up labels and jobs without leaving the file you are working on.",
+      "when": "Not scheduled"
+    },
+    {
+      "id": "extensions",
+      "icon": "Puzzle",
+      "name": "Extensions and an AI agent, off by default",
+      "state": "planned",
+      "summary": "Add columns, panels and commands; an agent can only propose, you approve.",
+      "when": "Not scheduled"
+    },
+    {
+      "id": "review",
+      "icon": "Eye",
+      "name": "Review workspace",
+      "state": "planned",
+      "summary": "Preview, annotate and decide in a read-only workspace.",
+      "when": "After 1.0"
+    },
+    {
+      "id": "own-client",
+      "icon": "Server",
+      "name": "Ropework's own Perforce client",
+      "state": "planned",
+      "summary": "Today Ropework runs the free p4 command-line client. The plan is to replace it with a client of our own. The direction is decided; research, a legal read and a schedule are not done, and no code has been written for it yet.",
+      "when": "Not scheduled"
+    },
+    {
+      "id": "ubuntu",
+      "icon": "Monitor",
+      "name": "Ubuntu 24.04",
+      "state": "planned",
+      "summary": "An AppImage and a .deb. A Linux build is being prepared; none is published yet.",
+      "when": "Next, after the beta is tested"
+    }
+  ]
+}

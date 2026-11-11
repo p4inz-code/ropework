@@ -1,13 +1,34 @@
 {
   "issues": [
-    { "text": "Windows only: there is no Ubuntu build yet.", "status": "Planned", "planned": "A later release" },
-    { "text": "The free p4 command-line client from Perforce is still needed. Ropework will have its own client.", "status": "Planned", "planned": "To be scheduled" },
-    { "text": "USD models are shown but their animation is not played.", "status": "Open", "planned": "A later release" },
-    { "text": "A model's textures are found only in the same folder as the model.", "status": "Open", "planned": "A later release" },
-    { "text": "Houdini files cannot be shown in the 3D view; Maya and Blender files can.", "status": "Open", "planned": "A later release" },
-    { "text": "Unreal asset thumbnails are not shown; the file shows a plain icon and Open in your editor.", "status": "Open", "planned": "A later release" },
-    { "text": "Comparing two versions works for models the viewer reads directly, not for Blender or Maya files.", "status": "Open", "planned": "A later release" },
-    { "text": "Streams, the PDF viewer, studio profiles, extensions and the Review workspace are not built yet.", "status": "Planned", "planned": "See the roadmap on the Releases page as it grows" },
-    { "text": "The installers are not code-signed, so Windows asks you to confirm.", "status": "Open", "planned": "Before the first public release" }
+    {
+      "text": "USD models are shown but their animation is not played.",
+      "status": "Open",
+      "planned": "A later release"
+    },
+    {
+      "text": "A model's textures are found only in the same folder as the model.",
+      "status": "Open",
+      "planned": "A later release"
+    },
+    {
+      "text": "Houdini files cannot be shown in the 3D view; Maya and Blender files can.",
+      "status": "Open",
+      "planned": "A later release"
+    },
+    {
+      "text": "Unreal asset thumbnails are not shown; the file shows a plain icon and Open in your editor.",
+      "status": "Open",
+      "planned": "A later release"
+    },
+    {
+      "text": "Comparing two versions works for models the viewer reads directly, not for Blender or Maya files.",
+      "status": "Open",
+      "planned": "A later release"
+    },
+    {
+      "text": "The installers are not code-signed, so Windows asks you to confirm.",
+      "status": "Open",
+      "planned": "Before the first public release"
+    }
   ]
 }

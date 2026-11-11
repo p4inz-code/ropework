@@ -1,0 +1,28 @@
+# Ropework
+
+> Ropework is a desktop client for Perforce Helix Core, made for studios. Artists get a simple layout, experts get a full one, in the same window. It is free during the beta and runs on Windows 11. Ubuntu 24.04 is planned. The source code is private; downloads, guides and release notes are public.
+
+## Use it
+- [Download the beta](https://p4inz-code.github.io/ropework/download/): installer and portable zip with SHA-256 checksums
+- [Features](https://p4inz-code.github.io/ropework/features/)
+- [Screens](https://p4inz-code.github.io/ropework/screens/): real screens in light and dark
+- [Migrate from P4V](https://p4inz-code.github.io/ropework/migrate/)
+- [Pricing](https://p4inz-code.github.io/ropework/pricing/): the beta is free; plans are priced by seat count after it
+
+## Help and trust
+- [Support](https://p4inz-code.github.io/ropework/support/)
+- [Known issues](https://p4inz-code.github.io/ropework/known-issues/)
+- [Privacy and security](https://p4inz-code.github.io/ropework/privacy/): no telemetry; what leaves the computer and what never does
+- [Beta terms](https://p4inz-code.github.io/ropework/terms/)
+- [Third-party notices](https://p4inz-code.github.io/ropework/notices/)
+
+## What changed
+- [Releases](https://p4inz-code.github.io/ropework/releases/)
+- [Changelog on GitHub](https://github.com/p4inz-code/ropework/blob/main/CHANGELOG.md)
+- [Roadmap](https://p4inz-code.github.io/ropework/roadmap.html)
+
+## Source of truth
+- [Repository with releases, guides and issues](https://github.com/p4inz-code/ropework)
+- [More from P4inz Interactive Labs](https://p4inz-code.github.io/ropework/labs/), also as [JSON](https://p4inz-code.github.io/ropework/ecosystem.json)
+
+Ropework is an independent product and is not affiliated with Perforce Software.

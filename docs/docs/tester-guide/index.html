@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' ; object-src 'none'; base-uri 'none'; form-action 'none'">
-<meta name="description" content="Install, first minutes, what to try, and how to send feedback.">
+<meta name="description" content="The tester guide is now part of the main guide.">
 <meta name="color-scheme" content="light dark">
 <meta name="form-endpoint" content="">
 <title>Guide for testers · Ropework</title>
 <link rel="icon" href="/ropework/brand/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="text/plain" href="/ropework/llms.txt" title="Summary for AI agents">
+<link rel="sitemap" type="application/xml" href="/ropework/sitemap.xml">
 <link rel="stylesheet" href="/ropework/tokens.css">
 <link rel="stylesheet" href="/ropework/site.css">
 <script src="/ropework/theme.js"></script>
@@ -17,52 +19,18 @@
 <a class="skip" href="#main">Skip to the content</a>
 <header class="site-head"><div class="wrap">
 <a class="brand" href="/ropework/" aria-label="Ropework home"><img class="logo-light" src="/ropework/brand/ropework-lockup-light.svg" alt="" width="177" height="36"><img class="logo-dark" src="/ropework/brand/ropework-lockup-dark.svg" alt="" width="177" height="36"></a>
-<nav class="nav" aria-label="Main"><a href="/ropework/features/">Features</a><a href="/ropework/pricing/">Pricing</a><a href="/ropework/migrate/">Migrate</a><a href="/ropework/docs/" aria-current="page">Docs</a><a href="/ropework/releases/">Releases</a></nav>
+<nav class="nav" aria-label="Main"><a href="/ropework/features/">Features</a><a href="/ropework/pricing/">Pricing</a><a href="/ropework/migrate/">Migrate</a><a href="/ropework/screens/">Screens</a><a href="/ropework/guide/">Guide</a><a href="/ropework/docs/" aria-current="page">Docs</a><a href="/ropework/releases/">Releases</a></nav>
 <a class="btn primary small head-cta" href="/ropework/download/">Download the beta</a>
-<div class="menu"><button type="button" class="menu-btn" data-toggle="menu-panel" aria-expanded="false" aria-controls="menu-panel"><svg class="ico " xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg> Menu</button><div class="menu-panel" id="menu-panel" hidden><a href="/ropework/features/">Features</a><a href="/ropework/pricing/">Pricing</a><a href="/ropework/migrate/">Migrate</a><a href="/ropework/docs/">Docs</a><a href="/ropework/releases/">Releases</a><a href="/ropework/download/">Download the beta</a><a href="/ropework/request/">Request beta access</a></div></div>
+<div class="menu"><button type="button" class="menu-btn" data-toggle="menu-panel" aria-expanded="false" aria-controls="menu-panel"><svg class="ico " xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg> Menu</button><div class="menu-panel" id="menu-panel" hidden><a href="/ropework/features/">Features</a><a href="/ropework/pricing/">Pricing</a><a href="/ropework/migrate/">Migrate</a><a href="/ropework/screens/">Screens</a><a href="/ropework/guide/">Guide</a><a href="/ropework/docs/">Docs</a><a href="/ropework/releases/">Releases</a><a href="/ropework/download/">Download the beta</a><a href="/ropework/request/">Request beta access</a></div></div>
 </div></header>
 <main id="main">
-<section class="page-title"><div class="wrap"><h1>Guide for testers</h1><p>Install, first minutes, what to try, and how to send feedback.</p></div></section>
-<section class="band"><div class="wrap"><div class="prose"><p>Thank you for trying Ropework. It is a desktop client for Perforce Helix Core that keeps you safe and tells you why things are blocked. This is an early beta: it does less than P4V today, and what it does, it tries to do carefully.</p>
-<h3>What you need</h3>
-<ul>
-<li>Windows 11 (64-bit). A Linux build is not part of this release.</li>
-<li>The free Perforce command-line client, <code>p4</code>, installed. If it is missing, the first screen tells you and shows where to get it. Ropework does not bundle it.</li>
-<li>A Perforce server you may use (your studio's, or a test one).</li>
-</ul>
-<h3>Install (pick one)</h3>
-<ol>
-<li><strong>Portable:</strong> unzip <code>ropework-&lt;version&gt;-win-x64-portable.zip</code> anywhere and run <code>Ropework.exe</code>. No administrator rights needed. To remove it, delete the folder.</li>
-<li><strong>Installer:</strong> run <code>Ropework Setup &lt;version&gt;.exe</code>. It installs for your user only. Remove it later from Windows &quot;Installed apps&quot;.</li>
-</ol>
-<p>Both are <strong>not code-signed yet</strong>, so Windows may say &quot;Windows protected your PC&quot;. Choose <strong>More info</strong>, then <strong>Run anyway</strong>. Check that the file matches <code>SHA256SUMS.txt</code> first if you want to be sure it is the one you were sent (in PowerShell: <code>Get-FileHash &lt;file&gt;</code>).</p>
-<h3>First minutes</h3>
-<ol>
-<li>The welcome screens find <code>p4</code>, connect you to your server, and ask how it should look.</li>
-<li>Pick a folder on the left. Files show their state in words: edited by you, locked by someone, not at latest, and so on.</li>
-<li>Try <strong>Get latest</strong> (it shows what will change first), <strong>Check out</strong>, <strong>Lock</strong>, <strong>Rename or move</strong>, <strong>Delete</strong> and <strong>Revert</strong>. Anything that could lose your changes saves a <strong>safety copy</strong> first, kept for 14 days, and offers <strong>Undo</strong>.</li>
-<li><strong>File &gt; Licence</strong> is where the key from your invitation email goes. During the beta nothing is blocked whether or not you register.</li>
-<li><strong>Help &gt; Run the doctor</strong> checks that everything the app needs is in place.</li>
-</ol>
-<h3>What you can try now</h3>
-<ul>
-<li><strong>Safe daily actions:</strong> Get latest (with a preview), Check out, Lock, Rename or move, Delete and Revert. Anything that could lose your changes takes a safety copy first and can be undone for 14 days.</li>
-<li><strong>Submit and checkpoints:</strong> a Submit that cannot run says why; a checkpoint saves your open work to the server and brings it back.</li>
-<li><strong>History:</strong> a file's revisions, who last changed each line, and what changed between two versions.</li>
-<li><strong>Resolve and merge:</strong> merge automatically, keep yours, take theirs, or choose for each clash by hand.</li>
-<li><strong>Previews:</strong> pictures, text, audio and video. Select a model and choose <strong>Open 3D view</strong> (glTF, FBX, OBJ, STL, PLY, USD; Blender and Maya files too, if those programs are installed). Compare two versions, measure, and save a picture.</li>
-<li><strong>Open in:</strong> a read-only copy of a file opens in a program found on your computer.</li>
-<li><strong>Changes made outside Ropework</strong> are found and reconciled; <strong>Compare...</strong> shows which files differ between two changes of a folder.</li>
-</ul>
-<h3>What is not built yet</h3>
-<p>Streams, the PDF viewer, studio profiles, extensions and the Review workspace; a Linux build; signed installers; Houdini files and Unreal thumbnails in the 3D view. Ropework still needs the free <code>p4</code> client; its own client is planned. <strong>Help &gt; What's new</strong> lists what each release added.</p>
-<h3>Telling us what happened</h3>
-<p><strong>Help &gt; Send feedback</strong> builds a short bundle on your computer. You see it before anything is sent, and nothing leaves your computer unless you choose to send it. Include what you did, what you expected and what happened.</p></div></div></section>
+<section class="page-title"><div class="wrap"><h1>Guide for testers</h1><p>The tester guide is now part of the main guide.</p></div></section>
+<section class="band"><div class="wrap"><div class="prose"><p>The guide for testers lives inside the main guide now, next to the questions people ask. Go to <a href="/ropework/guide/#for-testers">For testers</a>.</p></div></div></section>
 </main>
 <footer class="site-foot"><div class="wrap">
 <div class="foot-grid">
 <div><a class="brand" href="/ropework/" aria-label="Ropework home"><img class="logo-light" src="/ropework/brand/ropework-lockup-light.svg" alt="" width="148" height="30"><img class="logo-dark" src="/ropework/brand/ropework-lockup-dark.svg" alt="" width="148" height="30"></a><p class="brand-line">Your files and server details never leave your network. Ropework contacts our licence service only to confirm your licence.</p></div>
-<div><h4>Product</h4><ul><li><a href="/ropework/features/">Features</a></li><li><a href="/ropework/pricing/">Pricing</a></li><li><a href="/ropework/download/">Download</a></li><li><a href="/ropework/releases/">Releases</a></li><li><a href="/ropework/known-issues/">Known issues</a></li></ul></div><div><h4>Learn</h4><ul><li><a href="/ropework/docs/">Docs</a></li><li><a href="/ropework/migrate/">Migrate from P4V</a></li><li><a href="/ropework/privacy/">Privacy and security</a></li></ul></div><div><h4>Company</h4><ul><li><a href="/ropework/contact/">Contact</a></li><li><a href="/ropework/request/">Get the beta</a></li><li><a href="/ropework/terms/">Beta terms</a></li></ul></div>
+<div><h4>Product</h4><ul><li><a href="/ropework/features/">Features</a></li><li><a href="/ropework/screens/">Screens</a></li><li><a href="/ropework/pricing/">Pricing</a></li><li><a href="/ropework/download/">Download</a></li><li><a href="/ropework/releases/">Releases</a></li><li><a href="/ropework/known-issues/">Known issues</a></li></ul></div><div><h4>Learn</h4><ul><li><a href="/ropework/guide/">Guide and FAQ</a></li><li><a href="/ropework/docs/">Docs</a></li><li><a href="/ropework/support/">Support</a></li><li><a href="/ropework/migrate/">Migrate from P4V</a></li><li><a href="/ropework/privacy/">Privacy and security</a></li></ul></div><div><h4>Company</h4><ul><li><a href="/ropework/contact/">Contact</a></li><li><a href="/ropework/request/">Get the beta</a></li><li><a href="/ropework/terms/">Beta terms</a></li><li><a href="/ropework/notices/">Third-party notices</a></li><li><a href="/ropework/labs/">More from P4inz</a></li></ul></div>
 </div>
 <div class="foot-base"><span>Ropework is an independent product and is not affiliated with Perforce Software.</span><span class="theme" role="group" aria-label="Theme"><button type="button" data-theme-set="system" aria-pressed="true">System</button><button type="button" data-theme-set="light" aria-pressed="false">Light</button><button type="button" data-theme-set="dark" aria-pressed="false">Dark</button></span><span>© 2026 P4inz Interactive Labs</span></div>
 </div></footer>

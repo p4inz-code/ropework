@@ -42,12 +42,14 @@ for (const file of pages) {
   if (!/class="skip"/.test(html)) problems.push(`${at}: no skip link`);
   if ((html.match(/<h1[ >]/g) ?? []).length !== 1) problems.push(`${at}: needs exactly one h1`);
   if (/<select[\s>]/.test(html)) problems.push(`${at}: a system drop-down (select) is not allowed`);
-  if (/<script(?![^>]*\ssrc=)[^>]*>/.test(html)) problems.push(`${at}: an inline script`);
-  for (const m of html.matchAll(/(?:src|href)="([^"]+)"/g)) {
-    const url = m[1];
+  if (/<script(?![^>]*\ssrc=)(?![^>]*type="application\/ld\+json")[^>]*>/.test(html)) problems.push(`${at}: an inline script`);
+  for (const m of html.matchAll(/(src|href)="([^"]+)"/g)) {
+    const url = m[2];
     if (/^mailto:/.test(url)) continue;
     // the only places a page may link to outside itself: the project's own public repository (downloads, issues); nothing is ever loaded from outside
     if (/^https:\/\/github\.com\/p4inz-code\/ropework(\/|$)/.test(url)) continue;
+    // plain links (never loaded content) to the maker's other public projects are allowed
+    if (m[1] === "href" && /^https:\/\/(github\.com\/p4inz-code(\/|$)|p4inz-code\.github\.io\/)/.test(url)) continue;
     if (/^(https?:)?\/\//.test(url)) {
       problems.push(`${at}: an address outside the site: ${url}`);
       continue;
@@ -92,6 +94,24 @@ console.log(`ok: ${pages.length} pages, ${Math.round(cssjs / 1024)} KB of CSS an
   if (found.length) {
     console.log(found.join("\n"));
     console.log(`${found.length} native element(s) on the site`);
+    process.exit(1);
+  }
+}
+
+// Claims about what is built or not live in data/status.json only. A hand-written copy elsewhere is how a list goes stale,
+// so the markdown a visitor can read must point to the generated page instead of repeating it.
+{
+  const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+  const stale = [];
+  const mdFiles = ["README.md", "SUPPORT.md", "CONTRIBUTING.md", "legal/PRIVACY.md", "legal/TERMS.md"];
+  for (const n of readdirSync(join(root, "guides"))) if (n.endsWith(".md")) mdFiles.push("guides/" + n);
+  for (const f of mdFiles) {
+    if (!existsSync(join(root, f))) continue;
+    const text = readFileSync(join(root, f), "utf8");
+    if (/not built yet|are not built|is not built/i.test(text.replace(/\[[^\]]*not built yet[^\]]*\]\([^)]*\)/gi, ""))) stale.push(`${f}: a hand-written "not built" claim; link to the known issues page instead`);
+  }
+  if (stale.length) {
+    console.log(stale.join("\n"));
     process.exit(1);
   }
 }

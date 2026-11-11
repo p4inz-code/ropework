@@ -9,6 +9,8 @@
 <meta name="form-endpoint" content="">
 <title>Migrate from P4V · Ropework</title>
 <link rel="icon" href="/ropework/brand/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="text/plain" href="/ropework/llms.txt" title="Summary for AI agents">
+<link rel="sitemap" type="application/xml" href="/ropework/sitemap.xml">
 <link rel="stylesheet" href="/ropework/tokens.css">
 <link rel="stylesheet" href="/ropework/site.css">
 <script src="/ropework/theme.js"></script>
@@ -17,9 +19,9 @@
 <a class="skip" href="#main">Skip to the content</a>
 <header class="site-head"><div class="wrap">
 <a class="brand" href="/ropework/" aria-label="Ropework home"><img class="logo-light" src="/ropework/brand/ropework-lockup-light.svg" alt="" width="177" height="36"><img class="logo-dark" src="/ropework/brand/ropework-lockup-dark.svg" alt="" width="177" height="36"></a>
-<nav class="nav" aria-label="Main"><a href="/ropework/features/">Features</a><a href="/ropework/pricing/">Pricing</a><a href="/ropework/migrate/" aria-current="page">Migrate</a><a href="/ropework/docs/">Docs</a><a href="/ropework/releases/">Releases</a></nav>
+<nav class="nav" aria-label="Main"><a href="/ropework/features/">Features</a><a href="/ropework/pricing/">Pricing</a><a href="/ropework/migrate/" aria-current="page">Migrate</a><a href="/ropework/screens/">Screens</a><a href="/ropework/guide/">Guide</a><a href="/ropework/docs/">Docs</a><a href="/ropework/releases/">Releases</a></nav>
 <a class="btn primary small head-cta" href="/ropework/download/">Download the beta</a>
-<div class="menu"><button type="button" class="menu-btn" data-toggle="menu-panel" aria-expanded="false" aria-controls="menu-panel"><svg class="ico " xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg> Menu</button><div class="menu-panel" id="menu-panel" hidden><a href="/ropework/features/">Features</a><a href="/ropework/pricing/">Pricing</a><a href="/ropework/migrate/">Migrate</a><a href="/ropework/docs/">Docs</a><a href="/ropework/releases/">Releases</a><a href="/ropework/download/">Download the beta</a><a href="/ropework/request/">Request beta access</a></div></div>
+<div class="menu"><button type="button" class="menu-btn" data-toggle="menu-panel" aria-expanded="false" aria-controls="menu-panel"><svg class="ico " xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg> Menu</button><div class="menu-panel" id="menu-panel" hidden><a href="/ropework/features/">Features</a><a href="/ropework/pricing/">Pricing</a><a href="/ropework/migrate/">Migrate</a><a href="/ropework/screens/">Screens</a><a href="/ropework/guide/">Guide</a><a href="/ropework/docs/">Docs</a><a href="/ropework/releases/">Releases</a><a href="/ropework/download/">Download the beta</a><a href="/ropework/request/">Request beta access</a></div></div>
 </div></header>
 <main id="main">
 <section class="page-title"><div class="wrap"><h1>Migrate from P4V</h1><p>Switch at your own pace. Nothing on your server changes.</p></div></section>
@@ -28,7 +30,7 @@
 <li><h3>Install next to P4V</h3><p>Same server, same workspaces, nothing to convert. Use both side by side while you switch.</p></li>
 <li><h3>Sign in to your server</h3><p>The first start finds the free <code>p4</code> command-line client, asks for your server and user, and lists your workspaces.</p></li>
 <li><h3>Learn the few differences</h3><p>Files show their state in words, a button that cannot run says why, and Get latest shows what it will change first. The <a href="/ropework/docs/tester-guide/">tester guide</a> walks through it.</p></li>
-<li><h3>Roll out to the studio</h3><p>Today each person installs it with their own key. Shared studio profiles with layouts, templates and rules are planned.</p></li>
+<li><h3>Roll out to the studio</h3><p>Each person installs it on their own, and the beta needs no key. A studio profile can already lock settings with a reason, fix the starting layout and set description rules. Sharing one profile from the depot is still to come.</p></li>
 </ol>
 <div><h2 class="section" style="font-size:22px">What carries over</h2>
 <table class="table"><thead><tr><th scope="col">From P4V</th><th scope="col">In Ropework</th></tr></thead><tbody>
@@ -42,7 +44,7 @@
 <footer class="site-foot"><div class="wrap">
 <div class="foot-grid">
 <div><a class="brand" href="/ropework/" aria-label="Ropework home"><img class="logo-light" src="/ropework/brand/ropework-lockup-light.svg" alt="" width="148" height="30"><img class="logo-dark" src="/ropework/brand/ropework-lockup-dark.svg" alt="" width="148" height="30"></a><p class="brand-line">Your files and server details never leave your network. Ropework contacts our licence service only to confirm your licence.</p></div>
-<div><h4>Product</h4><ul><li><a href="/ropework/features/">Features</a></li><li><a href="/ropework/pricing/">Pricing</a></li><li><a href="/ropework/download/">Download</a></li><li><a href="/ropework/releases/">Releases</a></li><li><a href="/ropework/known-issues/">Known issues</a></li></ul></div><div><h4>Learn</h4><ul><li><a href="/ropework/docs/">Docs</a></li><li><a href="/ropework/migrate/">Migrate from P4V</a></li><li><a href="/ropework/privacy/">Privacy and security</a></li></ul></div><div><h4>Company</h4><ul><li><a href="/ropework/contact/">Contact</a></li><li><a href="/ropework/request/">Get the beta</a></li><li><a href="/ropework/terms/">Beta terms</a></li></ul></div>
+<div><h4>Product</h4><ul><li><a href="/ropework/features/">Features</a></li><li><a href="/ropework/screens/">Screens</a></li><li><a href="/ropework/pricing/">Pricing</a></li><li><a href="/ropework/download/">Download</a></li><li><a href="/ropework/releases/">Releases</a></li><li><a href="/ropework/known-issues/">Known issues</a></li></ul></div><div><h4>Learn</h4><ul><li><a href="/ropework/guide/">Guide and FAQ</a></li><li><a href="/ropework/docs/">Docs</a></li><li><a href="/ropework/support/">Support</a></li><li><a href="/ropework/migrate/">Migrate from P4V</a></li><li><a href="/ropework/privacy/">Privacy and security</a></li></ul></div><div><h4>Company</h4><ul><li><a href="/ropework/contact/">Contact</a></li><li><a href="/ropework/request/">Get the beta</a></li><li><a href="/ropework/terms/">Beta terms</a></li><li><a href="/ropework/notices/">Third-party notices</a></li><li><a href="/ropework/labs/">More from P4inz</a></li></ul></div>
 </div>
 <div class="foot-base"><span>Ropework is an independent product and is not affiliated with Perforce Software.</span><span class="theme" role="group" aria-label="Theme"><button type="button" data-theme-set="system" aria-pressed="true">System</button><button type="button" data-theme-set="light" aria-pressed="false">Light</button><button type="button" data-theme-set="dark" aria-pressed="false">Dark</button></span><span>© 2026 P4inz Interactive Labs</span></div>
 </div></footer>

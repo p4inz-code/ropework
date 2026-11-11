@@ -180,4 +180,59 @@
     if (e.key !== "Escape") return;
     document.querySelectorAll('[data-toggle="menu-panel"][aria-expanded="true"]').forEach(function (b) { b.click(); b.focus(); });
   });
+
+  // ---- guide: questions open and close, a search box filters them, the contents list follows the page
+  var qs = Array.prototype.slice.call(document.querySelectorAll(".qa"));
+  qs.forEach(function (q) {
+    var b = q.querySelector(".qa-q");
+    var a = q.querySelector(".qa-a");
+    function set(open) {
+      b.setAttribute("aria-expanded", String(open));
+      a.hidden = !open;
+    }
+    set(false);
+    b.addEventListener("click", function () {
+      set(b.getAttribute("aria-expanded") !== "true");
+    });
+    if (location.hash === "#" + q.id) set(true);
+  });
+  var box = document.querySelector(".qa-search");
+  if (box) {
+    var none = document.querySelector(".qa-none");
+    box.addEventListener("input", function () {
+      var term = box.value.trim().toLowerCase();
+      var shown = 0;
+      qs.forEach(function (q) {
+        var hit = !term || q.textContent.toLowerCase().indexOf(term) !== -1;
+        q.hidden = !hit;
+        if (hit) shown++;
+        if (term && hit) {
+          q.querySelector(".qa-q").setAttribute("aria-expanded", "true");
+          q.querySelector(".qa-a").hidden = false;
+        }
+      });
+      if (none) none.hidden = shown !== 0;
+    });
+  }
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll(".toc a"));
+  if (tocLinks.length && "IntersectionObserver" in window) {
+    var seen = {};
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (e) {
+          seen[e.target.id] = e.isIntersecting;
+        });
+        var first = tocLinks.filter(function (l) {
+          return seen[l.getAttribute("href").slice(1)];
+        })[0];
+        if (first) tocLinks.forEach(function (l) { l.setAttribute("aria-current", String(l === first)); });
+      },
+      { rootMargin: "-80px 0px -60% 0px" }
+    );
+    tocLinks.forEach(function (l) {
+      var s = document.getElementById(l.getAttribute("href").slice(1));
+      if (s) io.observe(s);
+    });
+  }
+
 })();
