@@ -166,4 +166,18 @@
         });
     });
   });
+  // sections that open and close (the mobile menu, older releases): a button with aria-expanded and the panel it controls
+  document.querySelectorAll("[data-toggle]").forEach(function (b) {
+    var panel = document.getElementById(b.getAttribute("data-toggle"));
+    if (!panel) return;
+    b.addEventListener("click", function () {
+      var open = b.getAttribute("aria-expanded") === "true";
+      b.setAttribute("aria-expanded", String(!open));
+      panel.hidden = open;
+    });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    document.querySelectorAll('[data-toggle="menu-panel"][aria-expanded="true"]').forEach(function (b) { b.click(); b.focus(); });
+  });
 })();
